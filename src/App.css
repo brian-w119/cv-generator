@@ -1,0 +1,251 @@
+
+*{
+  box-sizing: border-box;
+  background-color: white;
+}
+
+.box > .title, #education, .additionalInfo, #schooling {
+  color: black;
+  font-size: xx-large;
+  text-align: center;
+  
+}
+
+#firstName{
+  color: blue;
+}
+
+.box > #name{
+  width: 40vw;
+  display: flex;
+  justify-content: space-evenly;
+}
+
+.box {
+  margin-top: 10vh;
+  margin-bottom: 20vh;
+  border: 1px solid black;
+  display: block;
+  margin-left: 30vw;
+  margin-right: 30vw;
+  height: auto;
+}
+
+#address{
+  width: 30vw;
+  display: flex;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 2vh;
+  height: 10vh;
+  margin-top: 2vh;
+}
+
+.box > .inputField{
+  background-color: red;
+  text-align: center;
+  margin-top: 1vh;
+  margin-bottom: 1vh;  
+  min-height: 2vh;
+}
+
+#email{
+  max-width: 15vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+  height: 3vh;
+  width: 15vw;
+  margin-bottom: 2vh;
+  text-align: center;
+
+}
+
+#phoneNumber{
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+  border-style: inset;
+  margin-bottom: 2vh;
+  width: 10vw;
+  text-align: center;
+}
+
+.blank{
+  height: 6vh;
+}
+
+.jobs{
+  height: auto;
+  background-color: white;
+  width: 30vw;
+  text-align: center;
+  min-height: 10vh;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+  margin-top: 0;
+  margin-bottom: 1vh;
+  border-style: inset;
+}
+
+.subtitle{
+  text-align: center;
+}
+
+#name > .personalDtls{
+  width: 15vw;
+  border-style: inset;
+  border: none;
+  margin-top: 5vh;
+  margin-bottom: 2vh;
+  border: 2 px solid black;
+}
+
+.schooling{
+  width: 20vw;
+  display: block;
+  margin-left: auto;
+  margin-right: auto; 
+  height: 5vh;
+  margin-bottom: 2vh;
+  margin-top: 2vh;
+  text-align: center;
+  border-style: inset;
+}
+
+.additionalInfo{
+  width: 20vw;
+  height: 20vh;
+  display:block;
+  margin-left: auto;
+  margin-right: auto; 
+  border-style: inset;
+  text-wrap: wrap;
+  overflow-x: scroll;
+}
+
+.personalDtls.inputField{
+text-align: center;
+}
+
+.inputField{
+  text-align: center;
+}
+
+#submit{
+ display: block;
+ margin-left: auto;
+ margin-right: auto;
+ margin-bottom: 3vh;
+  width: 10vw;
+ 
+}
+
+.additionalInfo, .jobs,input{
+  background-color: rgb(71, 36, 36);
+  color: white;
+  font-size: large;
+}
+
+#outerBox{
+  background-color: grey;
+  margin-bottom: auto;
+}
+
+#heading{
+  text-align: center;
+  margin-top: 5vh;
+  font-size: 400%;
+  background-color: grey;
+  margin-top: auto;
+
+}
+
+#emptySpace{
+  background-color: grey;
+  height: auto;
+  color: grey;
+}
+
+#outline{
+  border: 2px solid black;
+  min-width: 30vw;
+  min-height: 50vh;
+  background-color: rgb(206, 200, 200);
+  display: block;
+  margin-left: 35vw;
+  margin-right: 35vw;
+}
+
+#basicDetails{
+  width: auto;
+  min-height: 15vh;
+  border-bottom: 1px solid black;
+}
+
+#fullName{
+  margin-top: 3vh;
+  width: 60%;
+  height: 2.5vh;
+  border: 1px solid black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#fullAddress{
+  width: 60%;
+  min-height: 2vh;
+  border: 1px solid green;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#emailAddress{
+  width: 60%;
+  min-height: 2.5vh;
+  border: 1px solid blue;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+#contactNumber{
+  width: 50%;
+  height: 2.5vh;
+  border: 1px solid red;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.line{
+  width: 100%;
+  border-bottom: 2px solid black;
+  margin-top: 2.5vh;
+}
+
+.sectionTitle{
+  text-align: center;
+  margin-top: 2vh;
+  background-color: rgb(206, 200, 200);
+  font-size: larger;
+}
+
+.experience{
+  width: 70%;
+  min-height: 2vh;
+  background-color: white;
+  border: 0.5px solid black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 2vh;
+}
+
+#section1{
+margin-top: 4vh;
+}
+
