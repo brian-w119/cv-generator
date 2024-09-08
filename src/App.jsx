@@ -1,7 +1,10 @@
 
-import './myIndex.css'
-import {useRef} from 'react';
+import './App.css'
+import {useState} from 'react';
 import React from 'react';
+
+
+
 
 
 function CreateButton({buttonClr = "green", id,textClr = "white", type}){
@@ -19,7 +22,11 @@ function CreateButton({buttonClr = "green", id,textClr = "white", type}){
     );
 };
 
-function CreateInput({type, ref, placeholder, htmlFor, className, id, name}){
+function captureInput(id){
+   
+};
+
+function CreateInput({type, ref, placeholder, htmlFor, className, id, name, captureInput}){
     return (
         <div>
             <label htmlFor={htmlFor}></label>
@@ -29,11 +36,21 @@ function CreateInput({type, ref, placeholder, htmlFor, className, id, name}){
 }
 
 export default function RenderData(){
-      const name1 = useRef(null);
-      const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(name1.current);
-    };
+    const [frstName, setFirstName] = useState(null);
+    const [lstName, setLastName] = useState(null);
+    const [address, setAddress] = useState(null);
+    const [email, setEmail] = useState(null);
+    const [phoneNumber, setPhoneNumber] = useState(null);
+    const [job1, setCurrentJob] = useState(null);
+    const [job2, setPreviousJob1] = useState(null);
+    const [job3, setPreviousJob3] = useState(null);
+    const [qual1, setQual1] = useState(null);
+    const [qual2, setQual2] = useState(null);
+    const [qual3, setQual3] = useState(null);
+    const [addQual, setAddQual] = useState(null);
+    const [addInfo, setAddInfo] = useState(null);
+
+
     return(
         <form onSubmit={handleSubmit} id="outerBox">
             <div id="heading">My CV</div>
@@ -45,7 +62,7 @@ export default function RenderData(){
                   className="personalDtls inputField"
                   placeholder="First Name"
                   id="name1"
-                  ref={name1}
+                  captureInput={captureInput}
                />
                <CreateInput
                   htmlFor="name2"
@@ -138,10 +155,9 @@ export default function RenderData(){
                 className="additionalInfo"
             />
            <div className="blank"></div>
-           <CreateButton onClick={handleSubmit} type="submit"/>  
+           <CreateButton type="submit"/>  
           </div>
           <div id="emptySpace">.</div>
         </form>
     );
 };
-
