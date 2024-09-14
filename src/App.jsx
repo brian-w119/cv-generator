@@ -3,6 +3,7 @@ import './App.css'
 import {useState} from 'react';
 import React from 'react';
 
+/*
 function CreateButton({buttonClr = "green", id,textClr = "white", type}){
     const buttonStyle = {
         color: textClr,
@@ -10,7 +11,6 @@ function CreateButton({buttonClr = "green", id,textClr = "white", type}){
     }
 
     const handleClick = () => {
-        console.log("clicked");
     }
     return (
         <div>
@@ -18,10 +18,23 @@ function CreateButton({buttonClr = "green", id,textClr = "white", type}){
         </div>
     );
 };
-function CreateLabel(){
-    return(
-        <label htmlFor={htmlFor}></label>
-    )
+*/
+function SubmitButton(){
+    const submit = () => console.log("submit clicked");
+    return (
+        <div>
+            <button onClick={submit} id="submit"  type="submit">SUBMIT</button>
+        </div>
+    );
+};
+
+function ClearButton(){
+    const clear = () => console.log("clear clicked");
+    return (
+        <div>
+            <button onClick={clear} id="clear">CLEAR</button>
+        </div>
+    );
 };
 
 function CreateInput({type, ref, placeholder, htmlFor, className, id, name, onChange, value}){
@@ -34,10 +47,24 @@ function CreateInput({type, ref, placeholder, htmlFor, className, id, name, onCh
 }
 
 export default function RenderData(){
+   const submit = () => console.log("submit clicked");
+  
+
    const [formData, setFormData] = useState({
     firstName: null,
-    lastName: null
-   });
+    lastName: null,
+    address: null,
+    email: null,
+    phone: null,
+    currentJob: null,
+    previousJob1: null,
+    previousJob2: null,
+    qual1: null,
+    qual2: null,
+    qual3: null,
+    qual4: null,
+    furtherInfo: null
+  });
 
     const handleSubmit = (e) => {
         e.preventDefault();
@@ -69,22 +96,31 @@ export default function RenderData(){
                />
            </div>
            <CreateInput 
+             htmlFor="address"
              id="address"
              placeholder="Your Address"
              className="inputField"
+             value={formData.address}
+             onChange={(e) => setFormData({...formData, address: e.target.value})}
            />
            <CreateInput
+              htmlFor="email"
               type="email"
               placeholder="Enter Your email"
               id="email"
               className="inputField"
+              value={formData.email}
+              onChange={(e) => setFormData({...formData, email: e.target.value})}
            />
 
            <CreateInput
+              htmlFor="phoneNumber"
               type="number"
               className="inputField"
               placeholder="Your Phone number"
               id="phoneNumber"
+              value={formData.phone}
+              onChange={(e) => setFormData({...formData, phone: e.target.value})}
            />
 
            <div className="blank"></div>
@@ -92,9 +128,12 @@ export default function RenderData(){
 
            <div className="subtitle">Current Employer:</div>
            <CreateInput 
+              htmlFor="employment1"
               className="jobs"
               placeholder="List Company Name, employment date and job description"
               id="employment1"
+              value={formData.currentJob}
+              onChange={(e) => setFormData({...formData, currentJob: e.target.value})}
            />
 
            <div className="subtitle">Previous Employer:</div>
@@ -103,6 +142,8 @@ export default function RenderData(){
               className="jobs"
               placeholder="List Company Name, employment date and job description"
               id="employment2"
+              value={formData.previousJob1}
+              onChange={(e) => setFormData({...formData, previousJob1: e.target.value})}
            />
 
            <div className="subtitle">Previous Employer:</div>
@@ -111,6 +152,8 @@ export default function RenderData(){
               className="jobs"
               placeholder="List Company Name, employment date and job description"
               id="employment3"
+              value={formData.previousJob2}
+              onChange={(e) => setFormData({...formData, previousJob2: e.target.value})}
            />
         
            <div className="blank"></div>
@@ -121,34 +164,47 @@ export default function RenderData(){
                 className="schooling"
                 placeholder="Qualification 1"
                 id="school1"
+                value={formData.qual1}
+                onChange={(e) => setFormData({...formData, qual1: e.target.value})}
               />
               <CreateInput
                 htmlFor="school2"
                 className="schooling"
                 placeholder="Qualification 2"
                 id="school2"
+                value={formData.qual2}
+                onChange={(e) => setFormData({...formData, qual2: e.target.value})}
               />
              <CreateInput
                 htmlFor="school3"
                 className="schooling"
                 placeholder="Qualification 3"
                 id="school3"
+                value={formData.qual3}
+                onChange={(e) => setFormData({...formData, qual3: e.target.value})}
             />
             <CreateInput
-             htmlFor="school4"
+                htmlFor="school4"
                 className="schooling"
                 placeholder="Additional Qualification"
                 id="school4"
+                value={formData.qual4}
+                onChange={(e) => setFormData({...formData, qual4: e.target.value})}
             />
 
             <div className="blank"></div>
 
             <div id="education">Further Information</div>
             <CreateInput
+                htmlFor="additionalInfo"
                 className="additionalInfo"
+                value={formData.furtherInfo}
+                onChange={(e) => setFormData({...formData, furtherInfo: e.target.value})}
             />
            <div className="blank"></div>
-           <CreateButton />  
+           <SubmitButton 
+           />   
+           <ClearButton />
           </div>
           <div id="emptySpace">.</div>
         </form>

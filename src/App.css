@@ -250,3 +250,17 @@ text-align: center;
 margin-top: 4vh;
 }
 
+#submit{
+  background-color: green;
+  color: white;
+}
+
+#clear{
+  background-color: red;
+  color: white;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-bottom: 5vh;
+}
+
