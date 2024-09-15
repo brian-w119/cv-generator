@@ -2,23 +2,10 @@
 import './App.css'
 import {useState} from 'react';
 import React from 'react';
+import { render } from 'react-dom';
 
-/*
-function CreateButton({buttonClr = "green", id,textClr = "white", type}){
-    const buttonStyle = {
-        color: textClr,
-        backgroundColor: buttonClr,
-    }
+let clearClicked = false;
 
-    const handleClick = () => {
-    }
-    return (
-        <div>
-            <button style={buttonStyle} onClick={handleClick} id="submit"  type="submit">Submit</button>
-        </div>
-    );
-};
-*/
 function SubmitButton(){
     const submit = () => console.log("submit clicked");
     return (
@@ -29,27 +16,35 @@ function SubmitButton(){
 };
 
 function ClearButton(){
-    const clear = () => console.log("clear clicked");
+    const clear = () => {
+        alert("clear clicked");
+        //refreshes the page
+       // window.location.reload(true);
+        clearClicked = true;
+    }
     return (
         <div>
-            <button onClick={clear} id="clear">CLEAR</button>
+            <button type="button" onClick={clear} id="clear">CLEAR</button>
         </div>
     );
 };
 
-function CreateInput({type, ref, placeholder, htmlFor, className, id, name, onChange, value}){
+function InputField({type, ref, placeholder, htmlFor, className, id, name, onChange, onClick, value}){
     return (
         <div>
             <label htmlFor={htmlFor}></label>
-            <input id={id} ref={ref} type={type} onChange={onChange} name={name} placeholder={placeholder} className={className} value={value}/>
+            <input id={id} ref={ref} type={type} onChange={onChange} name={name} onClick={onClick} placeholder={placeholder} className={className} value={value}/>
         </div>
     );
 }
 
-export default function RenderData(){
-   const submit = () => console.log("submit clicked");
-  
+function TextArea({value}){
+    return(
+        <textarea id="additionalInfo" rows="10" cols="40" value={value}/>
+    );
+};
 
+export default function RenderData(){
    const [formData, setFormData] = useState({
     firstName: null,
     lastName: null,
@@ -76,7 +71,7 @@ export default function RenderData(){
          <div className="box">
             <div id="section1" className="title">Personal Details</div>
               <div id="name">
-                <CreateInput
+                <InputField
                   htmlFor="name1"
                   className="personalDtls inputField"
                   placeholder="First Name"
@@ -85,7 +80,7 @@ export default function RenderData(){
                   value={formData.firstName}
                   onChange={(e) => setFormData({...formData, firstName: e.target.value})}
                />
-               <CreateInput
+               <InputField
                   htmlFor="name2"
                   className="personalDtls inputField"
                   placeholder="Last Name"
@@ -95,7 +90,7 @@ export default function RenderData(){
                   onChange={(e) => setFormData({...formData, lastName: e.target.value})}
                />
            </div>
-           <CreateInput 
+           <InputField
              htmlFor="address"
              id="address"
              placeholder="Your Address"
@@ -103,7 +98,7 @@ export default function RenderData(){
              value={formData.address}
              onChange={(e) => setFormData({...formData, address: e.target.value})}
            />
-           <CreateInput
+           <InputField
               htmlFor="email"
               type="email"
               placeholder="Enter Your email"
@@ -113,7 +108,7 @@ export default function RenderData(){
               onChange={(e) => setFormData({...formData, email: e.target.value})}
            />
 
-           <CreateInput
+           <InputField
               htmlFor="phoneNumber"
               type="number"
               className="inputField"
@@ -127,7 +122,7 @@ export default function RenderData(){
            <div className="title">Employment</div>
 
            <div className="subtitle">Current Employer:</div>
-           <CreateInput 
+           <InputField
               htmlFor="employment1"
               className="jobs"
               placeholder="List Company Name, employment date and job description"
@@ -137,7 +132,7 @@ export default function RenderData(){
            />
 
            <div className="subtitle">Previous Employer:</div>
-           <CreateInput 
+           <InputField
               htmlFor="employment2"
               className="jobs"
               placeholder="List Company Name, employment date and job description"
@@ -147,7 +142,7 @@ export default function RenderData(){
            />
 
            <div className="subtitle">Previous Employer:</div>
-           <CreateInput 
+           <InputField
               htmlFor="employment3"
               className="jobs"
               placeholder="List Company Name, employment date and job description"
@@ -159,7 +154,7 @@ export default function RenderData(){
            <div className="blank"></div>
            
            <div id="education">Education</div>
-              <CreateInput
+              <InputField
                 htmlFor="school1"
                 className="schooling"
                 placeholder="Qualification 1"
@@ -167,7 +162,7 @@ export default function RenderData(){
                 value={formData.qual1}
                 onChange={(e) => setFormData({...formData, qual1: e.target.value})}
               />
-              <CreateInput
+              <InputField
                 htmlFor="school2"
                 className="schooling"
                 placeholder="Qualification 2"
@@ -175,7 +170,7 @@ export default function RenderData(){
                 value={formData.qual2}
                 onChange={(e) => setFormData({...formData, qual2: e.target.value})}
               />
-             <CreateInput
+             <InputField
                 htmlFor="school3"
                 className="schooling"
                 placeholder="Qualification 3"
@@ -183,7 +178,7 @@ export default function RenderData(){
                 value={formData.qual3}
                 onChange={(e) => setFormData({...formData, qual3: e.target.value})}
             />
-            <CreateInput
+            <InputField
                 htmlFor="school4"
                 className="schooling"
                 placeholder="Additional Qualification"
@@ -195,12 +190,11 @@ export default function RenderData(){
             <div className="blank"></div>
 
             <div id="education">Further Information</div>
-            <CreateInput
-                htmlFor="additionalInfo"
-                className="additionalInfo"
-                value={formData.furtherInfo}
-                onChange={(e) => setFormData({...formData, furtherInfo: e.target.value})}
+            <TextArea 
+              value={formData.furtherInfo}
+              onChange={(e) => setFormData({...formData, furtherInfo: e.target.value})}
             />
+
            <div className="blank"></div>
            <SubmitButton 
            />   

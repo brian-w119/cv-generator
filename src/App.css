@@ -114,19 +114,19 @@
   border-style: inset;
 }
 
-.additionalInfo{
-  width: 20vw;
-  height: 20vh;
+#additionalInfo{
+  max-width: 20vw;
+  height: auto;
   display:block;
   margin-left: auto;
   margin-right: auto; 
   border-style: inset;
   text-wrap: wrap;
-  overflow-x: scroll;
+  word-wrap: break-word;
 }
 
 .personalDtls.inputField{
-text-align: center;
+   text-align: center;
 }
 
 .inputField{
@@ -142,7 +142,7 @@ text-align: center;
  
 }
 
-.additionalInfo, .jobs,input{
+#additionalInfo, .jobs,input{
   background-color: rgb(71, 36, 36);
   color: white;
   font-size: large;
@@ -263,4 +263,5 @@ margin-top: 4vh;
   margin-right: auto;
   margin-bottom: 5vh;
 }
+
 
