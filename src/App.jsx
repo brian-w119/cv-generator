@@ -5,6 +5,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import {useRef} from 'react';
 import CV from './App2.jsx';
+import {useEffect} from 'react'
 
 
 
@@ -19,16 +20,17 @@ function SubmitButton({onClick}){
     );
 };
 
-
 function ClearButton(){
     const clear = () => {
         //refreshes the page
         window.location.reload(true);
+        localStorage.clear();
         inputData = {};
+        //inputRef.current.reset();
     }
     return (
         <div>
-            <button type="clear" onClick={clear} id="clear">CLEAR</button>
+            <button type="reset" onClick={clear} id="clear">CLEAR</button>
         </div>
     );
 };
@@ -48,13 +50,10 @@ function TextArea({value, onChange}){
     );
 };
 
-
-
 export default function RenderData(){
     //removeForm removes the form from the DOM tree and adds completed CV
     const removeForm = () => {
       inputRef.current.innerHTML = "";
-     // inputRef.current.appendChild = <CV />;
     };
 
    const inputRef = useRef(null);
@@ -63,6 +62,7 @@ export default function RenderData(){
      submitting(true);
    };
 
+   const [storedData, storing] = useState(null);
    const [formData, setFormData] = useState({
     firstName: "",
     lastName: "",
@@ -80,11 +80,13 @@ export default function RenderData(){
   });
     const handleSubmit = (e) => {
         e.preventDefault();
-        //console.log(formData);
         inputData = {...formData}
-        console.log(inputData); 
+       // console.log(inputData); 
         removeForm();
-      //  inputRef.current.appendChild(CV)
+    };
+    //saves form data to local storage
+    const handle = () => {
+      localStorage.setItem('data', JSON.stringify(formData));
     }
 
     const clearFields = () => {
@@ -214,23 +216,20 @@ export default function RenderData(){
             />
            <div className="blank"></div>
            <SubmitButton 
-           onClick={() => submitClicked(true)}
+           onClick={() => {
+             submitClicked();
+             handle();
+            }
+          }
            />   
          <ClearButton />
           </div>
           <div id="emptySpace">.</div>
         </form>
-        {submitted ?  <CV />: null} /
+        {submitted ?  <CV />: null} 
      </div>
     );
 };
 
-function CreateDiv({id, className, innerText}){
-  return(
-     <div id={id} className={className}>{innerText}</div>
-  );
-};
 
-
-export {inputData};
 

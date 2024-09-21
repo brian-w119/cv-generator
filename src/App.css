@@ -187,13 +187,12 @@ width: 70vw;
 
 #fullName{
   margin-top: 3vh;
-  width: 60%;
+  max-width: 60%;
   height: 2.5vh;
   border: 1px solid black;
   display: block;
   margin-left: auto;
   margin-right: auto;
-  background-color: red;
 }
 
 #fullAddress{
@@ -267,5 +266,13 @@ margin-top: 4vh;
 
 #moreDetails{
   margin-bottom: 5vh;
+}
+
+#revertToDefault{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: red;
+  margin-bottom: 3vh;
 }
 
