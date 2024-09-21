@@ -1,7 +1,9 @@
 
-import './myIndex.css';
-import RenderData from './index.jsx';
+import './App.css';
+import RenderData from './App.jsx';
 import {useState} from 'react';
+import { inputData } from './App.jsx';
+import {useRef} from 'react'
 
 
 function CreateDiv({id, className, innerText}){

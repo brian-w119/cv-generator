@@ -170,12 +170,13 @@
 
 #outline{
   border: 2px solid black;
-  min-width: 30vw;
-  min-height: 50vh;
+width: 70vw;
+  height: auto;
   background-color: rgb(206, 200, 200);
   display: block;
-  margin-left: 35vw;
-  margin-right: 35vw;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 20vh;
 }
 
 #basicDetails{
@@ -198,7 +199,7 @@
 #fullAddress{
   width: 60%;
   min-height: 2vh;
-  border: 1px solid green;
+  border: 1px solid black;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -207,7 +208,7 @@
 #emailAddress{
   width: 60%;
   min-height: 2.5vh;
-  border: 1px solid blue;
+  border: 1px solid black;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -216,7 +217,7 @@
 #contactNumber{
   width: 50%;
   height: 2.5vh;
-  border: 1px solid red;
+  border: 1px solid black;
   display: block;
   margin-left: auto;
   margin-right: auto;
@@ -264,4 +265,7 @@ margin-top: 4vh;
   margin-bottom: 5vh;
 }
 
+#moreDetails{
+  margin-bottom: 5vh;
+}
 

@@ -1,30 +1,34 @@
 
-import './App.css'
+import './App.css';
 import {useState} from 'react';
 import React from 'react';
 import { render } from 'react-dom';
+import {useRef} from 'react';
+import CV from './App2.jsx';
 
-let clearClicked = false;
 
-function SubmitButton(){
-    const submit = () => console.log("submit clicked");
+
+let inputData = {};
+
+function SubmitButton({onClick}){
+    let submitClicked = false;
     return (
         <div>
-            <button onClick={submit} id="submit"  type="submit">SUBMIT</button>
+            <button id="submit" onClick={onClick} type="submit">SUBMIT</button>
         </div>
     );
 };
 
+
 function ClearButton(){
     const clear = () => {
-        alert("clear clicked");
         //refreshes the page
-       // window.location.reload(true);
-        clearClicked = true;
+        window.location.reload(true);
+        inputData = {};
     }
     return (
         <div>
-            <button type="button" onClick={clear} id="clear">CLEAR</button>
+            <button type="clear" onClick={clear} id="clear">CLEAR</button>
         </div>
     );
 };
@@ -38,35 +42,57 @@ function InputField({type, ref, placeholder, htmlFor, className, id, name, onCha
     );
 }
 
-function TextArea({value}){
+function TextArea({value, onChange}){
     return(
-        <textarea id="additionalInfo" rows="10" cols="40" value={value}/>
+        <textarea id="additionalInfo" onChange={onChange} rows="10" cols="40" value={value}/>
     );
 };
 
-export default function RenderData(){
-   const [formData, setFormData] = useState({
-    firstName: null,
-    lastName: null,
-    address: null,
-    email: null,
-    phone: null,
-    currentJob: null,
-    previousJob1: null,
-    previousJob2: null,
-    qual1: null,
-    qual2: null,
-    qual3: null,
-    qual4: null,
-    furtherInfo: null
-  });
 
+
+export default function RenderData(){
+    //removeForm removes the form from the DOM tree and adds completed CV
+    const removeForm = () => {
+      inputRef.current.innerHTML = "";
+     // inputRef.current.appendChild = <CV />;
+    };
+
+   const inputRef = useRef(null);
+   const [submitted, submitting] = useState(false);
+   const submitClicked = () => {
+     submitting(true);
+   };
+
+   const [formData, setFormData] = useState({
+    firstName: "",
+    lastName: "",
+    address: "",
+    email: "",
+    phone: "",
+    currentJob: "",
+    previousJob1: "",
+    previousJob2: "",
+    qual1: "",
+    qual2: "",
+    qual3: "",
+    qual4: "",
+    furtherInfo: ""
+  });
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData);
+        //console.log(formData);
+        inputData = {...formData}
+        console.log(inputData); 
+        removeForm();
+      //  inputRef.current.appendChild(CV)
+    }
+
+    const clearFields = () => {
+       // formData.map((field) => fiel)
     }
     return(
-        <form onSubmit={handleSubmit} id="outerBox">
+      <div   id="container">
+        <form  ref={inputRef} onSubmit={handleSubmit} id="outerBox">
             <div id="heading">My CV</div>
          <div className="box">
             <div id="section1" className="title">Personal Details</div>
@@ -107,7 +133,6 @@ export default function RenderData(){
               value={formData.email}
               onChange={(e) => setFormData({...formData, email: e.target.value})}
            />
-
            <InputField
               htmlFor="phoneNumber"
               type="number"
@@ -117,7 +142,6 @@ export default function RenderData(){
               value={formData.phone}
               onChange={(e) => setFormData({...formData, phone: e.target.value})}
            />
-
            <div className="blank"></div>
            <div className="title">Employment</div>
 
@@ -130,7 +154,6 @@ export default function RenderData(){
               value={formData.currentJob}
               onChange={(e) => setFormData({...formData, currentJob: e.target.value})}
            />
-
            <div className="subtitle">Previous Employer:</div>
            <InputField
               htmlFor="employment2"
@@ -140,7 +163,6 @@ export default function RenderData(){
               value={formData.previousJob1}
               onChange={(e) => setFormData({...formData, previousJob1: e.target.value})}
            />
-
            <div className="subtitle">Previous Employer:</div>
            <InputField
               htmlFor="employment3"
@@ -150,9 +172,7 @@ export default function RenderData(){
               value={formData.previousJob2}
               onChange={(e) => setFormData({...formData, previousJob2: e.target.value})}
            />
-        
            <div className="blank"></div>
-           
            <div id="education">Education</div>
               <InputField
                 htmlFor="school1"
@@ -186,21 +206,31 @@ export default function RenderData(){
                 value={formData.qual4}
                 onChange={(e) => setFormData({...formData, qual4: e.target.value})}
             />
-
             <div className="blank"></div>
-
             <div id="education">Further Information</div>
             <TextArea 
               value={formData.furtherInfo}
               onChange={(e) => setFormData({...formData, furtherInfo: e.target.value})}
             />
-
            <div className="blank"></div>
            <SubmitButton 
+           onClick={() => submitClicked(true)}
            />   
-           <ClearButton />
+         <ClearButton />
           </div>
           <div id="emptySpace">.</div>
         </form>
+        {submitted ?  <CV />: null} /
+     </div>
     );
 };
+
+function CreateDiv({id, className, innerText}){
+  return(
+     <div id={id} className={className}>{innerText}</div>
+  );
+};
+
+
+export {inputData};
+
