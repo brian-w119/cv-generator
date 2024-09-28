@@ -7,10 +7,7 @@ import {useRef} from 'react';
 import CV from './App2.jsx';
 import {useEffect} from 'react'
 
-
-
 let inputData = {};
-
 function SubmitButton({onClick}){
     let submitClicked = false;
     return (
@@ -35,7 +32,7 @@ function ClearButton(){
     );
 };
 
-function InputField({type, ref, placeholder, htmlFor, className, id, name, onChange, onClick, value}){
+function InputField({type, ref, placeholder, htmlFor, className, id, name, onChange, required, onClick, value}){
     return (
         <div>
             <label htmlFor={htmlFor}></label>

@@ -170,56 +170,66 @@
 
 #outline{
   border: 2px solid black;
-width: 70vw;
+  width: 50vw;
   height: auto;
   background-color: rgb(206, 200, 200);
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 20vh;
+  text-align: center;
 }
 
 #basicDetails{
   width: auto;
   min-height: 15vh;
   border-bottom: 1px solid black;
+  text-align: center;
 }
 
 #fullName{
   margin-top: 3vh;
   max-width: 60%;
   height: 2.5vh;
-  border: 1px solid black;
+  border: none;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+  background-color: rgb(228, 221, 221);
 }
 
 #fullAddress{
   width: 60%;
   min-height: 2vh;
-  border: 1px solid black;
+  border: none;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+  background-color: rgb(228, 221, 221);
 }
 
 #emailAddress{
   width: 60%;
   min-height: 2.5vh;
-  border: 1px solid black;
+  border: none;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+  background-color: rgb(228, 221, 221);
 }
 
 #contactNumber{
   width: 50%;
   height: 2.5vh;
-  border: 1px solid black;
+  border: none;
   display: block;
   margin-left: auto;
   margin-right: auto;
+  text-align: center;
+  background-color: rgb(228, 221, 221);
 }
 
 .line{
@@ -236,14 +246,17 @@ width: 70vw;
 }
 
 .experience{
-  width: 70%;
-  min-height: 2vh;
+  width: 50%;
+  height: auto;
   background-color: white;
-  border: 0.5px solid black;
+  border: none;
   display: block;
   margin-left: auto;
   margin-right: auto;
   margin-top: 2vh;
+  text-align: center;
+  background-color: rgb(228, 221, 221);
+  overflow-wrap: break-word;
 }
 
 #section1{
@@ -274,5 +287,35 @@ margin-top: 4vh;
   margin-right: auto;
   background-color: red;
   margin-bottom: 3vh;
+  margin-top: 10vh;
 }
 
+.qual{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  width: 50%;
+  height: auto;
+  margin-top: 3vh;
+  text-align: center;
+  background-color: rgb(228, 221, 221);
+  overflow-wrap: break-word;
+}
+
+.addInfo{
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  border: none;
+  width: 50%;
+  height: auto;
+  margin-top: 3vh;
+  text-align: center;
+  background-color: rgb(228, 221, 221);
+  overflow-wrap: break-word;
+}
+
+#outline{
+  background-color: rgb(228, 221, 221);
+}
